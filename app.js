@@ -22,6 +22,21 @@ app.get("/Viewall",(req,res)=>{
         }
     )
 })
+app.post("/Searchuser",(req,res)=>{
+    let input = req.body
+    ksebmodels.find(input).then(
+        (data)=>{
+            res.json(data)
+
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+    
+    
+})
 app.listen(8080,()=>{
     console.log("server started")
 })
