@@ -15,6 +15,13 @@ app.post("/Adduser",(req,res)=>{
     console.log(input)
 
 })
+app.get("/Viewall",(req,res)=>{
+    ksebmodels.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    )
+})
 app.listen(8080,()=>{
     console.log("server started")
 })
