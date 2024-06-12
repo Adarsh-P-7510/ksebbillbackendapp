@@ -37,6 +37,19 @@ app.post("/Searchuser",(req,res)=>{
     
     
 })
+app.post("/Deleteuser",(req,res)=>{
+    let input = req.body
+    ksebmodels.findByIdAndDelete(input._id).then(
+    (response)=>{
+        res.json({"success":"deleted"})
+    }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+
+})
 app.listen(8080,()=>{
     console.log("server started")
 })
